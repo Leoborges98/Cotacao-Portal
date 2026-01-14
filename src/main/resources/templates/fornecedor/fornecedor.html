@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Portal do Fornecedor</title>
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/fornecedor.css">
+</head>
+
+<body>
+
+<div class="layout">
+
+    <!-- TOPBAR -->
+    <header class="topbar">
+        <div class="topleft">
+            <h2>Portal do fornecedor</h2>
+        </div>
+
+        <div class="topright">
+            <i class="bi bi-bell"></i>
+            <span class="username">Olá, Fornecedor</span>
+            <i class="bi bi-box-arrow-right"></i>
+        </div>
+    </header>
+
+    <div class="layout-body">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="menu-item ativo">COTAÇÕES <span>→</span></div>
+        </aside>
+
+        <!-- CONTEÚDO -->
+        <main class="content">
+
+            <h1>Gestão de Cotações</h1>
+
+            <div class="cotacao-filtros">
+                <div class="botoes-filtros">
+                    <button class="btn-filtro ativo">Disponíveis</button>
+                    <button class="btn-filtro">Finalizadas</button>
+                </div>
+
+                <input type="text" placeholder="Pesquisar cotação...">
+            </div>
+
+            <!-- LISTA DE COTAÇÕES -->
+            <div id="listaCotacoes"></div>
+
+        </main>
+
+    </div>
+
+</div>
+
+<script src="/js/fornecedor.js"></script>
+</body>
+</html>

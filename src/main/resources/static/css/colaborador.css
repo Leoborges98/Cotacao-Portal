@@ -1,0 +1,196 @@
+/* ===== RESET BÁSICO ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ===== VARIÁVEIS (MESMAS DO FORNECEDOR) ===== */
+:root {
+    --azul-header: #12263a;
+    --azul-sidebar: #14253d;
+    --azul-ativo: #1f4fd8;
+    --cinza-fundo: #f3f5f7;
+    --cinza-card: #ffffff;
+    --cinza-borda: #e1e4e8;
+    --texto-branco: #ffffff;
+    --texto-padrao: #333;
+}
+
+/* ===== BODY ===== */
+body {
+    background-color: var(--cinza-fundo);
+}
+
+/* ===== HEADER ===== */
+.app-header {
+    height: 56px;
+    background-color: var(--azul-header);
+    color: var(--texto-branco);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+}
+
+/* ===== CONTAINER PRINCIPAL ===== */
+.app-container {
+    display: flex;
+    height: calc(100vh - 56px);
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+    width: 240px;
+    background-color: var(--azul-sidebar);
+    display: flex;
+    flex-direction: column;
+    padding-top: 12px;
+}
+
+.menu-item {
+    padding: 14px 24px;
+    color: #cfd8e3;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.menu-item:hover {
+    background-color: #1c3354;
+    color: #ffffff;
+}
+
+.menu-item.ativo {
+    background-color: var(--azul-ativo);
+    color: #ffffff;
+}
+
+/* ===== CONTEÚDO ===== */
+.conteudo {
+    flex: 1;
+    padding: 24px 32px;
+    background-color: var(--cinza-fundo);
+    overflow-y: auto;
+}
+
+.conteudo h1 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: var(--texto-padrao);
+}
+
+/* ===== TELAS ===== */
+.tela {
+    display: none;
+}
+
+.tela.ativa {
+    display: block;
+}
+
+/* ===== CARD ===== */
+.card {
+    background-color: var(--cinza-card);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    max-width: 700px;
+}
+
+/* ===== INPUT FILE ===== */
+.card input[type="file"] {
+    margin-top: 12px;
+}
+
+/* ===== TABELA ===== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid var(--cinza-borda);
+}
+
+th {
+    background-color: #f7f8fa;
+}
+
+/* ===== BOTÃO ===== */
+.btn-azul {
+    background-color: var(--azul-ativo);
+    color: #fff;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-azul:hover {
+    opacity: 0.9;
+}
+
+
+/* ===== NOVA COTAÇÃO - UPLOAD ===== */
+.upload-card {
+    max-width: 600px;
+}
+
+.upload-area {
+    border: 2px dashed var(--cinza-borda);
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    background-color: #fafafa;
+}
+
+.upload-icon {
+    font-size: 40px;
+    margin-bottom: 12px;
+}
+
+.upload-title {
+    font-size: 15px;
+    color: var(--texto-padrao);
+    margin-bottom: 6px;
+}
+
+.upload-subtitle {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 16px;
+}
+
+.arquivo-nome {
+    margin-top: 12px;
+    font-size: 13px;
+    color: #555;
+}
+
+.upload-card {
+    max-width: 600px;
+}
+
+.upload-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed #2b6cb0;
+    padding: 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #2b6cb0;
+    font-weight: 600;
+}
+
+.upload-label input {
+    display: none;
+}
+
+.upload-info {
+    margin-top: 10px;
+    color: #444;
+}

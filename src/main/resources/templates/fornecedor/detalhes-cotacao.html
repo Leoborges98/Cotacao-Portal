@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes da Cotação - Portal do Fornecedor</title>
+    <link rel="stylesheet" href="/css/detalhes-cotacao.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Portal do Fornecedor</h1>
+            <div class="user-info">Olá, Fornecedor</div>
+        </header>
+
+        <div class="main-layout">
+            <aside class="sidebar">
+                <div class="menu-section">
+                    <div class="menu-item active">
+                        <span>COTAÇÕES</span>
+                        <span class="arrow">→</span>
+                    </div>
+                </div>
+            </aside>
+
+            <main class="content">
+                <div class="page-header">
+                    <h2 id="idCotacao">1023</h2> </div>
+
+                <div class="cotacao-info">
+                    <div class="info-card">
+                        <span class="info-label">ID Cotação</span>
+                        <span class="info-value">1023</span>
+                    </div>
+                    <div class="info-card">
+                        <span class="info-label">Comprador</span>
+                        <span class="info-value" id="comprador">Leiroz & Vieira</span>
+                    </div>
+                    <div class="info-card">
+                        <span class="info-label">Status</span>
+                        <span class="info-value status-andamento" id="status">Em Andamento</span>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn-salvar" id="btnSalvarTodas">💾 Salvar Todas as Alterações</button>
+                    <button class="btn-cancelar" id="btnCancelar">✕ Cancelar Alterações</button>
+                </div>
+
+                <div class="divider"></div>
+
+                <div id="listaMateriais">
+                    <div class="material-card">
+                        <div class="material-header">
+                            <div class="codigo-empresa">CÓDIGO DA EMPRESA 12345</div>
+                            <div class="material-nome">Aço Inoxidável</div>
+                        </div>
+                        
+                        <div class="material-grid">
+                            <div class="grid-row">
+                                <div class="field-group cod-interno">
+                                    <label>CÓDIGO</label>
+                                    <div class="field-value">F.PRIRO</div>
+                                </div>
+                                <div class="field-group ncm">
+                                    <label>NCM</label>
+                                    <input type="text" value="7219.90.00" class="field-input" data-field="ncm">
+                                </div>
+                                <div class="field-group unidade">
+                                    <label>UNID.</label>
+                                    <select class="field-select" data-field="unidade"><option>KG</option></select>
+                                </div>
+                                <div class="field-group quantidade">
+                                    <label>QTD.</label>
+                                    <input type="number" value="100" class="field-input" data-field="quantidade">
+                                </div>
+                                <div class="field-group valor">
+                                    <label>V. UNIT (R$)</label>
+                                    <input type="number" value="10.70" class="field-input" data-field="valorUnitario">
+                                </div>
+                                <div class="field-group porcentagem">
+                                    <label>% DESC</label>
+                                    <input type="number" value="5" class="field-input desconto-percentual" data-field="descontoPercentual">
+                                </div>
+                                <div class="field-group valor-calc">
+                                    <label>DESC R$</label>
+                                    <input type="number" value="53.50" class="field-input desconto-real" data-field="descontoReal">
+                                </div>
+                                <div class="field-group porcentagem">
+                                    <label>% IPI</label>
+                                    <input type="number" value="0" class="field-input" data-field="ipi">
+                                </div>
+                                <div class="field-group porcentagem">
+                                    <label>% ICMS</label>
+                                    <input type="number" value="18" class="field-input" data-field="icms">
+                                </div>
+                                <div class="field-group entrega">
+                                    <label>ENTREGA</label>
+                                    <input type="number" value="15" class="field-input" data-field="diasEntrega">
+                                </div>
+                                <div class="field-group total">
+                                    <label>TOTAL (R$)</label>
+                                    <div class="field-total" data-field="total">R$ 0,00</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="total-resumo">
+                    <h3>VALOR TOTAL DA COTAÇÃO</h3>
+                    <div id="valorTotalCotacao">R$ 0,00</div>
+                    <button class="btn-enviar" id="btnEnviarProposta" style="margin-top:15px">📤 Enviar Proposta</button>
+                    
+                    <div style="display:none">
+                        <span id="subtotalCotacao"></span>
+                        <span id="totalDescontos"></span>
+                        <span id="totalIPI"></span>
+                        <span id="totalICMS"></span>
+                        <span id="data"></span>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="/js/detalhes-cotacao.js"></script>
+</body>
+</html>

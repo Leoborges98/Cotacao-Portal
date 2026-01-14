@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Leiroz & Vieira</title>
+
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=2">
+</head>
+
+<body>
+
+<!-- ===================== TELA DE LOGIN ===================== -->
+<div id="login-container" class="login-container">
+    <div class="login-box">
+
+        <img src="/img/logo.png" alt="Logo da empresa" class="logo">
+
+        <h2 class="titulo">Bem-vindo ao Portal</h2>
+
+        <form id="login-form" method="post" action="/login">
+            <select name="role" required>
+                <option value="">Selecione...</option>
+                <option value="colaborador">Colaborador</option>
+                <option value="fornecedor">Fornecedor</option>
+            </select>
+
+            <input type="text" name="username" placeholder="Usuário" required>
+            <input type="password" name="password" placeholder="Senha" required>
+
+            <button type="submit">Entrar</button>
+
+            <a href="#" class="link">Esqueci minha senha</a>
+
+            <p class="trocar">
+                Não tem conta?
+                <a href="#" onclick="mostrarCadastro()">Cadastrar-se</a>
+            </p>
+        </form>
+
+    </div>
+</div>
+
+<!-- ===================== TELA DE CADASTRO ===================== -->
+<div id="cadastro-container" class="login-container" style="display: none;">
+    <div class="login-box">
+
+        <img src="/img/logo.png" alt="Logo da empresa" class="logo">
+
+        <h2 class="titulo">Criar Conta</h2>
+
+        <form id="cadastro-form" method="post" action="">
+            <select id="tipo-cadastro" required>
+                <option value="">Selecione...</option>
+                <option value="colaborador">Colaborador</option>
+                <option value="fornecedor">Fornecedor</option>
+            </select>
+
+            <input type="text" id="nome-cadastro" placeholder="Nome" required>
+            <input type="email" id="email-cadastro" placeholder="E-mail" required>
+            <input type="password" id="senha-cadastro" placeholder="Senha" required>
+
+            <button type="submit">Cadastrar</button>
+
+            <p class="trocar">
+                Já tem conta?
+                <a href="#" onclick="mostrarLogin()">Entrar</a>
+            </p>
+        </form>
+
+    </div>
+</div>
+
+<script>
+    function mostrarCadastro() {
+        document.getElementById('login-container').style.display = 'none';
+        document.getElementById('cadastro-container').style.display = 'block';
+    }
+
+    function mostrarLogin() {
+        document.getElementById('login-container').style.display = 'block';
+        document.getElementById('cadastro-container').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>

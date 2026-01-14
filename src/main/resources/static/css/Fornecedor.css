@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+    background: #f3f5f7;
+}
+
+/* LAYOUT */
+.layout {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* TOPBAR */
+.topbar {
+    height: 60px;
+    background: #1e293b;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+}
+
+.topright {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* BODY */
+.layout-body {
+    display: flex;
+    flex: 1;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 220px;
+    background: #0f172a;
+    color: #fff;
+    padding: 20px;
+}
+
+.menu-item {
+    cursor: pointer;
+    padding: 12px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu-item.ativo {
+    background: #1e293b;
+}
+
+/* CONTEÚDO */
+.content {
+    flex: 1;
+    padding: 24px;
+}
+
+/* FILTROS */
+.cotacao-filtros {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.btn-filtro {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-filtro.ativo {
+    background: #2563eb;
+    color: #fff;
+}
+
+/* CARD */
+.card-cotacao {
+    background: #fff;
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.card-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+}
+
+.id-com-icone {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-visualizar-inline {
+    color: #2563eb;
+    font-size: 18px;
+}
+
+.btn-liberar {
+    background: #16a34a;
+    color: #fff;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+}
