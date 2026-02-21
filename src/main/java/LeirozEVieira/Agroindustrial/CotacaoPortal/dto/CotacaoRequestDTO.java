@@ -1,5 +1,4 @@
-package LeirozEVieira.DTO;
-
+package LeirozEVieira.Agroindustrial.CotacaoPortal.dto;
 import java.util.List;
 
 public class CotacaoRequestDTO {

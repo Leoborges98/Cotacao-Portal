@@ -3,11 +3,12 @@ package LeirozEVieira.Agroindustrial.CotacaoPortal.controllers;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import LeirozEVieira.DTO.FornecedorDTO;
+import LeirozEVieira.Agroindustrial.CotacaoPortal.dto.FornecedorDTO;
 
 @Controller
 public class FornecedorController {
@@ -31,8 +32,11 @@ public class FornecedorController {
     }
 
     // Tela de detalhes da cotação
-    @GetMapping("/detalhes-cotacao")
-    public String detalhesCotacao() {
-        return "fornecedor/detalhes-cotacao"; // detalhes-cotacao.html
-    }
+@GetMapping("/detalhes-cotacao/{id}")
+public String detalhesCotacao(@PathVariable Long id) {
+
+    System.out.println("ID recebido no detalhes-cotacao: " + id);
+
+    return "fornecedor/detalhes-cotacao";
+  }
 }

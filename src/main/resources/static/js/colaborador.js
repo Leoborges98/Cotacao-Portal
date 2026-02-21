@@ -1,128 +1,120 @@
-// ================= MENU =================
-const menuItens = document.querySelectorAll('.menu-item');
-const telas = document.querySelectorAll('.tela');
+// ===============================
+// COLABORADOR.JS CORRIGIDO
+// ===============================
+alert("JS ATUALIZADO");
+let produtos = [];
 
-menuItens.forEach(item => {
-    item.addEventListener('click', () => {
-        menuItens.forEach(i => i.classList.remove('ativo'));
-        telas.forEach(t => t.classList.remove('ativa'));
+// Espera o HTML carregar
+document.addEventListener("DOMContentLoaded", function () {
 
-        item.classList.add('ativo');
-        const telaId = 'tela-' + item.dataset.tela;
-        document.getElementById(telaId).classList.add('ativa');
-    });
-});
+    const inputExcel = document.getElementById("arquivoExcel");
+    const uploadInfo = document.querySelector(".upload-info");
+    const previewDiv = document.getElementById("previewProdutos");
+    const corpoTabela = document.getElementById("corpoProdutos");
+    const btnEnviar = document.getElementById("btnEnviarCotacao");
 
-// ============ NOVA COTAÇÃO - UPLOAD EXCEL ============
-const inputArquivo = document.getElementById('arquivoExcel');
-const nomeArquivo = document.querySelector('.upload-info');
+    // ============================
+    // AO SELECIONAR O ARQUIVO
+    // ============================
+    inputExcel.addEventListener("change", function (event) {
 
-if (inputArquivo) {
-    inputArquivo.addEventListener('change', () => {
-        const arquivo = inputArquivo.files[0];
+        const file = event.target.files[0];
 
-        if (!arquivo) {
-            nomeArquivo.textContent = 'Nenhum arquivo selecionado';
+        if (!file) {
+            uploadInfo.textContent = "Nenhum arquivo selecionado";
             return;
         }
 
-        const nome = arquivo.name.toLowerCase();
-        if (!nome.endsWith('.xls') && !nome.endsWith('.xlsx')) {
-            alert('Selecione um arquivo Excel válido (.xls ou .xlsx)');
-            inputArquivo.value = '';
-            nomeArquivo.textContent = 'Nenhum arquivo selecionado';
-            return;
-        }
-
-        nomeArquivo.textContent = `Arquivo selecionado: ${arquivo.name}`;
+        uploadInfo.textContent = "Arquivo selecionado: " + file.name;
 
         const reader = new FileReader();
 
         reader.onload = function (e) {
+
             const data = new Uint8Array(e.target.result);
-            const workbook = XLSX.read(data, { type: 'array' });
+            const workbook = XLSX.read(data, { type: "array" });
 
-            const nomeAba = workbook.SheetNames[0];
-            const planilha = workbook.Sheets[nomeAba];
+            const sheetName = workbook.SheetNames[0];
+            const sheet = workbook.Sheets[sheetName];
 
-            // 🔹 Leitura bruta do Excel
-            const produtosExcel = XLSX.utils.sheet_to_json(planilha);
-            console.log('📄 Produtos lidos do Excel:', produtosExcel);
+            const json = XLSX.utils.sheet_to_json(sheet);
 
-            // ==================================================
-            // ✅ PASSO 1 — AJUSTE PARA ProdutoDTO
-            // ==================================================
-            const produtosAjustados = produtosExcel.map(p => ({
-                codigo: String(p['Código Produto']).trim(),
-                descricao: String(p['Nome do Produto']).trim(),
-                quantidade: Number(
-                    String(p['Quantidade Total'])
-                        .replace(/\./g, '')
-                        .replace(',', '.')
-                )
+            produtos = json.map(item => ({
+                codigo: item["Código Produto"] || "",
+                descricao: item["Nome do Produto"] || "",
+                quantidade: Number(item["Quantidade Total"]) || 0
             }));
 
-            console.log('✅ Produtos ajustados (ProdutoDTO):', produtosAjustados);
+            console.log("Produtos lidos:", produtos);
 
-            // ==================================================
-            // 🔹 ENVIO (ainda simples, só para validar fluxo)
-            // ==================================================
-            fetch('http://localhost:8080/api/cotacoes', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    comprador: 'COLABORADOR_TESTE',
-                    produtos: produtosAjustados
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log('🟢 Cotação criada no backend:', data);
-
-                 sessionStorage.setItem('cotacaoId', data.id);
-
-                console.log('💾 ID da cotação salvo:', data.id);
-                })
-                
-            .catch(err => {
-                console.error('❌ Erro ao enviar cotação:', err);
-            });
-
-            // ==================================================
-            // 🔹 PREVIEW DA TABELA (SEM ALTERAÇÃO)
-            // ==================================================
-            const preview = document.getElementById('previewProdutos');
-            const cabecalho = document.getElementById('cabecalhoProdutos');
-            const corpo = document.getElementById('corpoProdutos');
-
-            cabecalho.innerHTML = '';
-            corpo.innerHTML = '';
-
-            const colunas = Object.keys(produtosExcel[0]);
-
-            colunas.forEach(coluna => {
-                const th = document.createElement('th');
-                th.textContent = coluna;
-                cabecalho.appendChild(th);
-            });
-
-            produtosExcel.forEach(produto => {
-                const tr = document.createElement('tr');
-
-                colunas.forEach(coluna => {
-                    const td = document.createElement('td');
-                    td.textContent = produto[coluna] ?? '';
-                    tr.appendChild(td);
-                });
-
-                corpo.appendChild(tr);
-            });
-
-            preview.style.display = 'block';
+            renderizarPreview();
+            sessionStorage.setItem("produtos", JSON.stringify(produtos));
         };
 
-        reader.readAsArrayBuffer(arquivo);
+        reader.readAsArrayBuffer(file);
     });
-}
+
+    // ============================
+    // RENDERIZA TABELA
+    // ============================
+    function renderizarPreview() {
+
+        corpoTabela.innerHTML = "";
+
+        if (produtos.length === 0) return;
+
+        previewDiv.style.display = "block";
+
+        produtos.forEach(p => {
+
+            const tr = document.createElement("tr");
+
+            tr.innerHTML = `
+                <td>${p.codigo}</td>
+                <td>${p.descricao}</td>
+                <td>${p.quantidade}</td>
+            `;
+
+            corpoTabela.appendChild(tr);
+        });
+    }
+
+    // ============================
+    // ENVIAR COTAÇÃO
+    // ============================
+    btnEnviar.addEventListener("click", function () {
+
+        const produtosSalvos = JSON.parse(sessionStorage.getItem("produtos"));
+
+        if (!produtosSalvos || produtosSalvos.length === 0) {
+            alert("Nenhum produto carregado.");
+            return;
+        }
+
+        fetch("/api/cotacoes", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                comprador: "Colaborador",
+                produtos: produtosSalvos
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+
+            console.log("Cotação enviada com sucesso:", data);
+
+            alert("Cotação enviada com sucesso!");
+
+            // Redireciona para fornecedor
+            window.location.href = "/fornecedor";
+        })
+        .catch(error => {
+            console.error("Erro ao enviar:", error);
+            alert("Erro ao enviar cotação.");
+        });
+    });
+
+});

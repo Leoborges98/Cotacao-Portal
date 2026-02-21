@@ -1,4 +1,4 @@
-package LeirozEVieira.DTO;
+package LeirozEVieira.Agroindustrial.CotacaoPortal.dto;
 
 import java.time.LocalDate;
 

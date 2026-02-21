@@ -1,12 +1,11 @@
-package LeirozEVieira.DTO;
+package LeirozEVieira.Agroindustrial.CotacaoPortal.dto;
 
-public class ColaboradorDTO {
+public class FornecedorDTO {
     private String tipo;
     private String nome;
     private String email;
     private String senha;
 
-    // Getters e Setters
     public String getTipo() { return tipo; }
     public void setTipo(String tipo) { this.tipo = tipo; }
 
