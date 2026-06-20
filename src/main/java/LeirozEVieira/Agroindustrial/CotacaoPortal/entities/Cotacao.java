@@ -10,20 +10,42 @@ public class Cotacao {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private LocalDate data;
+    private String descricao;
 
-    public Cotacao() {
-    }
+    private String status;
 
+    private LocalDate dataCotacao;
+
+    @ManyToOne
+    @JoinColumn(name = "fk_colab_id")
+    private Usuario colaborador;
+   
     public Long getId() {
         return id;
     }
 
-    public LocalDate getData() {
-        return data;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setData(LocalDate data) {
-        this.data = data;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+
+    public LocalDate getDataCotacao() {
+        return dataCotacao;
+    }
+
+    public Usuario getColaborador() {
+        return colaborador;
+    }
+
+    public void setColaborador(Usuario colaborador) {
+        this.colaborador = colaborador;
     }
 }
