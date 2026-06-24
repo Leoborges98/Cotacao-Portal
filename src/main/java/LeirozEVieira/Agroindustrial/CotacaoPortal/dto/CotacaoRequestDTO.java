@@ -3,15 +3,15 @@ import java.util.List;
 
 public class CotacaoRequestDTO {
 
-    private String comprador;
+    private String colaborador;
     private List<ProdutoDTO> produtos;
 
-    public String getComprador() {
-        return comprador;
+    public String getColaborador() {
+        return colaborador;
     }
 
-    public void setComprador(String comprador) {
-        this.comprador = comprador;
+    public void setColaborador(String colaborador) {
+        this.colaborador = colaborador;
     }
 
     public List<ProdutoDTO> getProdutos() {

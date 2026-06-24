@@ -6,15 +6,15 @@ public class CotacaoResumoDTO {
 
     private Long id;
     private LocalDate data;
-    private String comprador;
+    private String colaborador;
 
     public CotacaoResumoDTO() {
     }
 
-    public CotacaoResumoDTO(Long id, LocalDate data, String comprador) {
+    public CotacaoResumoDTO(Long id, LocalDate data, String colaborador) {
         this.id = id;
         this.data = data;
-        this.comprador = comprador;
+        this.colaborador = colaborador;
     }
 
     public Long getId() {
@@ -33,11 +33,11 @@ public class CotacaoResumoDTO {
         this.data = data;
     }
 
-    public String getComprador() {
-        return comprador;
+    public String getColaborador() {
+        return colaborador;
     }
 
-    public void setComprador(String comprador) {
-        this.comprador = comprador;
+    public void setColaborador(String colaborador) {
+        this.colaborador = colaborador;
     }
 }

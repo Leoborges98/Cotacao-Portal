@@ -22,7 +22,7 @@ class CotacaoCalculator {
 
         document.getElementById('idCotacao').textContent = cotacao.id;
         document.querySelector('.info-card .info-value').textContent = cotacao.id;
-        document.getElementById('comprador').textContent = cotacao.comprador;
+        document.getElementById('colaborador').textContent = cotacao.colaborador;
         document.getElementById('status').textContent = cotacao.status;
     }
 
