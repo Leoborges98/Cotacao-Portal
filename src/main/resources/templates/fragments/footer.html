@@ -1,7 +1,11 @@
-<footer class="text-center mt-5"
-        th:fragment="footer">
-    <hr>
-    <p>
-        Portal de Cotação © 2026
-    </p>
+<footer th:fragment="footer" class="footer-custom">
+
+    <span>
+        © <span id="anoAtual"></span> Portal Leiroz & Vieira • Todos os direitos reservados.
+    </span>
+
 </footer>
+
+<script>
+    document.getElementById("anoAtual").textContent = new Date().getFullYear();
+</script>

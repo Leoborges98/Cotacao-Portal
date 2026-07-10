@@ -1,0 +1,36 @@
+<aside class="sidebar d-flex flex-column" th:fragment="sidebarForn">
+
+    <button id="toggleSidebar" class="menu-toggle" >
+
+        <i class="bi bi-list"></i>
+
+    </button>
+
+    <div class="logo-sidebar ">
+         <img th:src="@{/img/logo.png}" alt="Logo da empresa" class="logo">
+    </div>
+
+    <nav class="nav flex-column gap-2">
+
+    <a href="#" class="nav-link menu-item active">
+        <i class="bi bi-grid"></i>
+        <span class="menu-text">Dashboard</span>
+    </a>
+
+    <a href="#" class="nav-link menu-item">
+        <i class="bi bi-file-earmark-text"></i>
+        <span class="menu-text">Cotações Disponíveis</span>
+    </a>
+
+    <a href="#" class="nav-link menu-item">
+        <i class="bi bi-list-check"></i>
+        <span class="menu-text"> Minhas Propostas</span>
+    </a>
+
+    <a href="#" class="nav-link menu-item">
+        <i class="bi bi-gear"></i>
+        <span class="menu-text">Configurações</span>
+    </a>
+    </nav>
+
+</aside>

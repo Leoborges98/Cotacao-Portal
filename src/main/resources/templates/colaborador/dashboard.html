@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head(titulo)">
+    <meta charset="UTF-8">
+    <title th:text="${titulo}">Portal Leiroz & Vieira</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" th:href="@{/css/dashboard.css}">
+</head>
+    <body>
+
+        <div class="d-flex">
+            <div  th:replace="~{fragments/sidebarColab :: sidebarColab}"></div>
+
+            <div class="content w-100">
+
+                <nav th:replace="~{fragments/navbar :: navbar}"></nav>
+                
+               <!-- MAIN -->
+            <!-- MAIN -->
+                <main class="main-content container-fluid">
+
+                    <!-- Cabeçalho -->
+                    <div class="mb-4" id="cabecalho">
+
+                        <h2 class="fw-bold mb-1">
+                            Dashboard
+                        </h2>
+
+                        <p class="text-muted mb-1">
+                            Bem-vindo ao Portal de Cotação.
+                        </p>
+
+                    </div>
+
+                    <!-- Cards Resumo -->
+                    <div class="row g-4 mb-4">
+
+                        <div class="col-12 col-sm-6 col-xl-3">
+
+                            <div class="custom-card h-100">
+
+                                <div class="card-icon blue">
+                                    <i class="bi bi-file-earmark-text"></i>
+                                </div>
+
+                                <h3>--</h3>
+
+                                <p>Total de Cotações</p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-xl-3">
+
+                            <div class="custom-card h-100">
+
+                                <div class="card-icon green">
+                                    <i class="bi bi-hourglass-split"></i>
+                                </div>
+
+                                <h3>--</h3>
+
+                                <p>Cotações Pendentes</p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-xl-3">
+
+                            <div class="custom-card h-100">
+
+                                <div class="card-icon blue">
+                                    <i class="bi bi-check2-circle"></i>
+                                </div>
+
+                                <h3>--</h3>
+
+                                <p>Cotações Finalizadas</p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-xl-3">
+
+                            <div class="custom-card h-100">
+
+                                <div class="card-icon green">
+                                    <i class="bi bi-building"></i>
+                                </div>
+
+                                <h3>--</h3>
+
+                                <p>Fornecedores Ativos</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Ações Rápidas -->
+                    <div class="table-card mb-4">
+
+                        <h5 class="fw-semibold mb-4">
+                            Ações Rápidas
+                        </h5>
+
+                        <div class="row g-3">
+
+                            <div class="col-12 col-sm-6 col-xl-3">
+                                <button class="btn btn-primary-custom w-100">
+                                    <i class="bi bi-plus-circle me-2"></i>
+                                    Nova Cotação
+                                </button>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-xl-3">
+                                <button class="btn btn-outline-secondary w-100">
+                                    <i class="bi bi-upload me-2"></i>
+                                    Importar Planilha
+                                </button>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-xl-3">
+                                <button class="btn btn-outline-secondary w-100">
+                                    <i class="bi bi-list-check me-2"></i>
+                                    Minhas Cotações
+                                </button>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-xl-3">
+                                <button class="btn btn-outline-secondary w-100">
+                                    <i class="bi bi-building me-2"></i>
+                                    Fornecedores
+                                </button>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Últimas Cotações -->
+                    <div class="table-card">
+
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+
+                            <h5 class="fw-semibold mb-0">
+                                Últimas Cotações
+                            </h5>
+
+                        </div>
+
+                        <div class="table-responsive">
+
+                            <table class="table align-middle">
+
+                                <thead>
+
+                                    <tr>
+
+                                        <th>Código</th>
+                                        <th>Título</th>
+                                        <th>Fornecedor</th>
+                                        <th>Data</th>
+                                        <th>Status</th>
+                                        <th class="text-center">Ações</th>
+
+                                    </tr>
+
+                                </thead>
+
+                                <tbody>
+
+                                    <tr>
+
+                                        <td colspan="6" class="text-center py-5 text-muted">
+
+                                            <i class="bi bi-inbox fs-1 d-block mb-3"></i>
+
+                                            <h5 class="mb-2">
+                                                Nenhuma cotação cadastrada
+                                            </h5>
+
+                                            <p class="mb-3">
+                                                Assim que uma cotação for criada, ela aparecerá aqui.
+                                            </p>
+
+                                            <button class="btn btn-primary-custom">
+                                                <i class="bi bi-plus-circle me-2"></i>
+                                                Criar primeira cotação
+                                            </button>
+
+                                        </td>
+
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </div>
+
+                </main>
+                
+                
+                <div th:replace="~{fragments/footer :: footer}"></div>
+            </div>
+        </div>
+
+
+        <script th:src="@{/js/dashboard.js}"></script>
+    </body>
+</html>
