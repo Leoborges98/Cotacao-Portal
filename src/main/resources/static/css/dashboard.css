@@ -43,7 +43,7 @@ body{
 .sidebar{
     width:260px;
     min-width:260px;
-align-self:stretch;
+    align-self:stretch;
     min-height:100vh;
     background:var(--cor-primaria);
     padding:24px 18px;
@@ -56,10 +56,7 @@ align-self:stretch;
     min-width:80px;
 }
 
-.logo{
-    width:150px;
-    transition:.3s;
-}
+
 
 .sidebar.collapsed .logo{
     width:48px;
@@ -136,10 +133,10 @@ align-self:stretch;
         visibility:visible;
     }
 
-} */
+} 
 
 
-.logo{
+#logo{
     width:150px;
     height:auto;
     padding:10px;
@@ -148,8 +145,8 @@ align-self:stretch;
     border:1px solid rgba(255,255,255,.15);
     box-shadow:0 8px 20px rgba(0,0,0,.10);
     transition:.25s ease;
-
 }
+
 
 .logo-sidebar{
     display:flex;
@@ -157,14 +154,8 @@ align-self:stretch;
     margin-bottom:40px;
 }
 
-.logo:hover{
+#logo:hover{
     transform:scale(1.03);
-}
-
-.logo-navbar{
-    font-size:24px;
-    font-weight:700;
-    color:var(--cor-primaria);
 }
 
 .user-avatar{

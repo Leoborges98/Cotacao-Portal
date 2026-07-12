@@ -56,7 +56,7 @@ public class PropostaDTO {
     }
 
     public LocalDate getData_resposta(){
-        return data_entrega;
+        return data_resposta;
     }
 
     public String getObservacao(){
