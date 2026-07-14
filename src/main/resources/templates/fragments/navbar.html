@@ -4,13 +4,23 @@
         <i class="bi bi-list"></i>
     </button>
 
-    <div class="user-area ms-auto">
 
+    <div class="user-area ms-auto">
+        <!-- Foto -->
         <div class="user-avatar">
-            TG
+
+            <img th:if="${usuario != null and usuario.fotoPerfil != null}"
+                 th:src="@{/uploads/perfis/{foto}(foto=${usuario.fotoPerfil})}"
+                 alt="Foto do usuário">
+
+            <span th:unless="${usuario != null and usuario.fotoPerfil != null}">
+                TV
+            </span>
+
         </div>
 
-        <a th:href="@{/logout}" class="logout-btn">
+        <!-- Logout -->
+        <a th:href="@{/logout}" class="logout-btn btn-danger">
             <i class="bi bi-box-arrow-right"></i>
             <span>Sair</span>
         </a>

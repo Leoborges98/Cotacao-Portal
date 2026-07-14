@@ -159,17 +159,24 @@ body{
 }
 
 .user-avatar{
-    width:42px;
-    height:42px;
+    width:45px;
+    height:45px;
     border-radius:50%;
-    background:#14253d;
-    color:#FFF;
+    overflow:hidden;
+    background:#2BA53C;
     display:flex;
     align-items:center;
     justify-content:center;
+    color:#fff;
     font-weight:600;
-    cursor:pointer;
 }
+
+.user-avatar img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
 .user-area{
     margin-left:auto;  
     display:flex;

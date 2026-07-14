@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head(titulo)">
+    <meta charset="UTF-8">
+    <title th:text="${titulo}">Meu Perfil</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" th:href="@{/css/dashboard.css}">
+</head>
+    <body>
+
+        <div class="d-flex">
+            <div  th:replace="~{fragments/sidebarColab :: sidebarColab}"></div>
+
+            <div class="content w-100">
+
+                <nav th:replace="~{fragments/navbar :: navbar}"></nav>
+                
+                <main class="container-fluid p-4">
+                    <!-- Título -->
+                    <div class="mb-4">
+                        <h2 class="fw-bold">Meu Perfil</h2>
+                        <p class="text-muted">
+                            Gerencie suas informações pessoais e personalize sua foto de perfil.
+                        </p>
+                    </div>
+
+                    <div class="row">
+
+                        <!-- FOTO -->
+                        <div class="col-lg-4 mb-4">
+
+                            <div class="card shadow-sm rounded-4 border-0">
+
+                                <div class="card-body text-center">
+
+                                    <img src="/img/perfil-default.png"
+                                        class="rounded-circle border shadow-sm mb-3"
+                                        width="170"
+                                        height="170"
+                                        id="previewFoto">
+
+                                    <h5 class="fw-bold">
+                                        João da Silva
+                                    </h5>
+
+                                    <p class="text-muted">
+                                        Colaborador
+                                    </p>
+
+                                    <hr>
+
+                                    <label class="form-label fw-semibold">
+                                        Foto de Perfil
+                                    </label>
+
+                                    <input
+                                            type="file"
+                                            class="form-control"
+                                            accept="image/*">
+
+                                    <small class="text-muted d-block mt-2">
+                                        JPG, PNG ou JPEG (Máx. 5 MB)
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- DADOS -->
+                        <div class="col-lg-8">
+
+                            <div class="card shadow-sm rounded-4 border-0">
+
+                                <div class="card-header bg-white border-0 pt-4">
+
+                                    <h4 class="fw-bold">
+                                        Informações do Colaborador
+                                    </h4>
+
+                                </div>
+
+                                <div class="card-body">
+
+                                    <div class="row">
+
+                                        <div class="col-md-6 mb-3">
+
+                                            <label class="form-label">
+                                                Nome Completo
+                                            </label>
+
+                                            <input
+                                                    type="text"
+                                                    class="form-control"
+                                                    placeholder="Nome">
+
+                                        </div>
+
+                                        <div class="col-md-6 mb-3">
+
+                                            <label class="form-label">
+                                                E-mail
+                                            </label>
+
+                                            <input
+                                                    type="email"
+                                                    class="form-control"
+                                                    placeholder="email@empresa.com.br">
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+
+                                        <div class="col-md-6 mb-3">
+
+                                            <label class="form-label">
+                                                Usuário
+                                            </label>
+
+                                            <input
+                                                    type="text"
+                                                    class="form-control">
+
+                                        </div>
+
+                                        <div class="col-md-6 mb-3">
+
+                                            <label class="form-label">
+                                                Cargo
+                                            </label>
+
+                                            <input
+                                                    type="text"
+                                                    class="form-control">
+
+                                        </div>
+
+                                    </div>
+
+                                    <hr class="my-4">
+
+                                    <h5 class="fw-bold mb-3">
+                                        Alterar Senha
+                                    </h5>
+
+                                    <div class="row">
+
+                                        <div class="col-md-4 mb-3">
+
+                                            <label class="form-label">
+                                                Senha Atual
+                                            </label>
+
+                                            <input
+                                                    type="password"
+                                                    class="form-control">
+
+                                        </div>
+
+                                        <div class="col-md-4 mb-3">
+
+                                            <label class="form-label">
+                                                Nova Senha
+                                            </label>
+
+                                            <input
+                                                    type="password"
+                                                    class="form-control">
+
+                                        </div>
+
+                                        <div class="col-md-4 mb-3">
+
+                                            <label class="form-label">
+                                                Confirmar Senha
+                                            </label>
+
+                                            <input
+                                                    type="password"
+                                                    class="form-control">
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="card-footer bg-white border-0 p-4">
+
+                                    <div class="d-flex justify-content-end gap-2">
+
+                                        <button class="btn btn-outline-secondary">
+
+                                            Cancelar
+
+                                        </button>
+
+                                        <button class="btn btn-success">
+
+                                            <i class="bi bi-check-circle"></i>
+
+                                            Salvar Alterações
+
+                                        </button>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </main>
+                    
+                 <div th:replace="~{fragments/footer :: footer}"></div>
+            </div>
+        </div>
+
+        <script th:src="@{/js/dashboard.js}"></script>
+    </body>
+</html>

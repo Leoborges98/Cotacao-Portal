@@ -23,4 +23,19 @@ public class ColaboradorController {
         return "colaborador/nova-cotacao";
     }
 
+    @GetMapping("/comparar")
+    public String compararCotacoes() {
+        return "colaborador/comparar-cotacoes";
+    }
+
+    @GetMapping("/fornecedores")
+    public String fornecedores() {
+        return "colaborador/fornecedores";
+    }
+
+    @GetMapping("/perfil")
+    public String perfil() {
+        return "colaborador/perfil";
+    }
+
 }
