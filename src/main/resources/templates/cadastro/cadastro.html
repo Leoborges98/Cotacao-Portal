@@ -10,37 +10,34 @@
 </head>
 <body>
 
-<!-- ===================== TELA DE LOGIN ===================== -->
-<div id="login-container" class="login-container">
+    <!-- ===================== TELA DE CADASTRO ===================== -->
+<div id="cadastro-container" class="login-container">
     <div class="login-box">
 
         <img src="/img/logo.png" alt="Logo da empresa" class="logo">
 
-        <h2 class="titulo">Bem-vindo ao Portal</h2>
+        <h2 class="titulo">Criar Conta</h2>
 
-        <form id="login-form" method="post" action="login">
-            <select name="role" required>
+        <form id="cadastro-form" method="post" th:action="@{/cadastro}">
+            <select id="tipo-cadastro" required>
                 <option value="colaborador">Colaborador</option>
                 <option value="fornecedor">Fornecedor</option>
             </select>
 
-            <input type="text" name="username" placeholder="Usuário" required>
-            <input type="password" name="password" placeholder="Senha" required>
+            <input type="text" id="nome-cadastro" placeholder="Nome" required>
+            <input type="email" id="email-cadastro" placeholder="E-mail" required>
+            <input type="password" id="senha-cadastro" placeholder="Senha" required>
 
-            <button type="submit">Entrar</button>
-
-            <a href="#" class="link">Esqueci minha senha</a>
+            <button type="submit">Cadastrar</button> 
 
             <p class="trocar">
-                Não tem conta?
-                <a th:href="@{/cadastro}">Cadastrar-se</a>
+                Já tem conta?
+                <a >Entrar</a>
             </p>
         </form>
 
     </div>
 </div>
-
-
 
 <script th:src="@{/js/script.js}"></script>
 
