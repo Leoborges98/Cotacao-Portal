@@ -20,4 +20,9 @@ public class FornecedorController {
         return "fornecedor/cotacoes";
     }
 
+    @GetMapping("/perfil")
+    public String perfil() {
+        return "fornecedor/perfil";
+    }
+
 }
