@@ -1,6 +1,6 @@
 package LeirozEVieira.Agroindustrial.CotacaoPortal.services;
 
-import LeirozEVieira.Agroindustrial.CotacaoPortal.entities.TipoUsuario;
+import LeirozEVieira.Agroindustrial.CotacaoPortal.dto.UsuarioDTO;
 import LeirozEVieira.Agroindustrial.CotacaoPortal.entities.Usuario;
 import LeirozEVieira.Agroindustrial.CotacaoPortal.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,25 +16,25 @@ public class UsuarioService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    public Usuario cadastrar(String email, String nome, String senha) {
+    public Usuario cadastrar(UsuarioDTO dto) {
 
-        if (email == null || email.isBlank()) {
+        if (dto.getEmail() == null || dto.getEmail().isBlank()) {
             throw new IllegalArgumentException("Email é obrigatório");
         }
 
-        if (senha == null || senha.isBlank()) {
+        if (dto.getSenha() == null || dto.getSenha().isBlank()) {
             throw new IllegalArgumentException("Senha é obrigatória");
         }
 
-        if (usuarioRepository.existsByEmail(email)) {
+        if (usuarioRepository.existsByEmail(dto.getEmail())) {
             throw new IllegalArgumentException("Email já cadastrado");
         }
 
         Usuario usuario = new Usuario();
-        usuario.setEmail(email);
-        usuario.setNome(nome);
-        usuario.setSenha(passwordEncoder.encode(senha)); // nunca salva senha crua
-        usuario.setTipo(TipoUsuario.USER); // padrão pra todo cadastro público
+        usuario.setEmail(dto.getEmail());
+        usuario.setNome(dto.getNome());
+        usuario.setSenha(passwordEncoder.encode(dto.getSenha())); // nunca salva senha crua
+        usuario.setTipo(Usuario.TipoUsuario.USER);
 
         return usuarioRepository.save(usuario);
     }

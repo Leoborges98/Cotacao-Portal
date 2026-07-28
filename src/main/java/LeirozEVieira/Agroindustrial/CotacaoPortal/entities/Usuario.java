@@ -5,7 +5,14 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "usuarios")
 public class Usuario {
-    @Id 
+
+    // Enum aninhado - vive dentro da classe Usuario
+    public enum TipoUsuario {
+        USER,
+        ADMIN
+    }
+
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -20,8 +27,8 @@ public class Usuario {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private String tipo;
-    
+    private TipoUsuario tipo;
+
     public Long getId() {
         return id;
     }
@@ -45,12 +52,16 @@ public class Usuario {
     public String getSenha() {
         return senha;
     }
-    
-    public String getTipo() {
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public TipoUsuario getTipo() {
         return tipo;
     }
 
-    public void setTipo(String tipo) {
+    public void setTipo(TipoUsuario tipo) {
         this.tipo = tipo;
-    } 
+    }
 }
