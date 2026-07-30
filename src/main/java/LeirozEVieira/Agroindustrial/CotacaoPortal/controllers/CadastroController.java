@@ -24,8 +24,8 @@ public class CadastroController {
     public String cadastrar(UsuarioDTO dto){
 
         service.cadastrar(dto);
-
-        return "redirect:/login";
+            
+        return "login/login";
 
     }
 

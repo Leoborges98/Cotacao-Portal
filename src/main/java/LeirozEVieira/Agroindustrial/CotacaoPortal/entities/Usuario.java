@@ -8,8 +8,8 @@ public class Usuario {
 
     // Enum aninhado - vive dentro da classe Usuario
     public enum TipoUsuario {
-        USER,
-        ADMIN
+        COLABORADOR,
+        FORNECEDOR
     }
 
     @Id

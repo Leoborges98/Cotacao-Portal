@@ -34,7 +34,7 @@ public class UsuarioService {
         usuario.setEmail(dto.getEmail());
         usuario.setNome(dto.getNome());
         usuario.setSenha(passwordEncoder.encode(dto.getSenha())); // nunca salva senha crua
-        usuario.setTipo(Usuario.TipoUsuario.USER);
+        usuario.setTipo(dto.getTipo());
 
         return usuarioRepository.save(usuario);
     }

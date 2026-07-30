@@ -1,10 +1,14 @@
 package LeirozEVieira.Agroindustrial.CotacaoPortal.dto;
 
+import LeirozEVieira.Agroindustrial.CotacaoPortal.entities.Usuario;
+import LeirozEVieira.Agroindustrial.CotacaoPortal.entities.Usuario.TipoUsuario;
+
 public class UsuarioDTO {
 
     private String email;
     private String nome;
     private String senha;
+    private Usuario.TipoUsuario tipo;
 
     public String getEmail() {
         return email;
@@ -29,4 +33,12 @@ public class UsuarioDTO {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
+    public TipoUsuario getTipo() {
+    return tipo;
+}
+
+public void setTipo(TipoUsuario tipo) {
+    this.tipo = tipo;
+}
 }

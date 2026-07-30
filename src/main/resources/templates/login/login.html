@@ -6,7 +6,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" th:href="@{/css/login.css}">
     <link rel="icon" type="image/x-icon" th:href="@{/img/favicon.ico}">
-    
 </head>
 <body>
 
@@ -18,13 +17,14 @@
 
         <h2 class="titulo">Bem-vindo ao Portal</h2>
 
-        <form id="login-form" method="post" action="login">
+        <form id="login-form" th:action="@{/login}" method="post">
             <select name="role" required>
                 <option value="colaborador">Colaborador</option>
                 <option value="fornecedor">Fornecedor</option>
             </select>
 
-            <input type="text" name="username" placeholder="Usuário" required>
+            <input  type="hidden"
+         placeholder="Usuário" required>
             <input type="password" name="password" placeholder="Senha" required>
 
             <button type="submit">Entrar</button>
