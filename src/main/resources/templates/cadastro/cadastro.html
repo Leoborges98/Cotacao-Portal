@@ -19,14 +19,14 @@
         <h2 class="titulo">Criar Conta</h2>
 
         <form id="cadastro-form" method="post" th:action="@{/cadastro}">
-            <select id="tipo-cadastro" required>
+            <select id="tipo-cadastro" name="tipo" required>
                 <option value="colaborador">Colaborador</option>
                 <option value="fornecedor">Fornecedor</option>
             </select>
 
-            <input type="text" id="nome-cadastro" placeholder="Nome" required>
-            <input type="email" id="email-cadastro" placeholder="E-mail" required>
-            <input type="password" id="senha-cadastro" placeholder="Senha" required>
+            <input type="text" id="nome-cadastro" name = "nome" placeholder="Nome" required>
+            <input type="email" id="email-cadastro" name = "email" placeholder="E-mail" required>
+            <input type="password" id="senha-cadastro" name = "senha" placeholder="Senha" required>
 
             <button type="submit">Cadastrar</button> 
 
