@@ -25,7 +25,7 @@ public class CadastroController {
 
         service.cadastrar(dto);
             
-        return "login/login";
+        return "redirect:/login";
 
     }
 
